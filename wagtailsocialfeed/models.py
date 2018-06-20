@@ -4,8 +4,8 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.six import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailcore.models import Page
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.models import Page
 
 from .managers import ModeratedItemManager
 from .utils import get_feed_items, get_feed_items_mix

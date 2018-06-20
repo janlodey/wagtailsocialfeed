@@ -1,13 +1,13 @@
 from __future__ import unicode_literals
 
 from django.conf.urls import include, url
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db.models.signals import post_save
 from django.utils import six
 from django.utils.translation import ugettext_lazy as _
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
-from wagtail.wagtailadmin.menu import Menu, MenuItem, SubmenuMenuItem
-from wagtail.wagtailcore import hooks
+from wagtail.admin.menu import Menu, MenuItem, SubmenuMenuItem
+from wagtail.core import hooks
 
 from . import urls
 from .models import SocialFeedConfiguration
@@ -74,8 +74,7 @@ modeladmin_register(SocialFeedConfigurationAdmin)
 @hooks.register('register_admin_urls')
 def register_admin_urls():
     return [
-        url(r'^socialfeed/', include(urls, app_name='wagtailsocialfeed',
-            namespace='wagtailsocialfeed')),
+        url(r'^socialfeed/', include((urls, 'wagtailsocialfeed'), namespace='wagtailsocialfeed')),
     ]
 
 

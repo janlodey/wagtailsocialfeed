@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import View
 from django.views.generic.detail import DetailView
-from wagtail.wagtailadmin.forms import SearchForm
+from wagtail.admin.forms import SearchForm
 
 from .models import ModeratedItem, SocialFeedConfiguration
 from .utils.feed.factory import FeedFactory
